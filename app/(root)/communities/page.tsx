@@ -20,7 +20,6 @@ async function Page({
     const userInfo = await fetchUser(user.id);
     if (!userInfo?.onboarded) redirect("/onboarding");
 
-    console.log('Fetching communities with searchParams:', searchParams);
 
     const result = await fetchCommunities({
       searchString: searchParams.q,
@@ -28,10 +27,7 @@ async function Page({
       pageSize: 25,
     });
 
-    console.log('Communities fetch result:', {
-      count: result.communities.length,
-      isNext: result.isNext
-    });
+
 
     return (
       <>
