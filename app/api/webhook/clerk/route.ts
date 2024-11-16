@@ -65,16 +65,9 @@ export const POST = async (request: Request) => {
   if (eventType === "organization.created") {
     // Resource: https://clerk.com/docs/reference/backend-api/tag/Organizations#operation/CreateOrganization
     // Show what evnt?.data sends from above resource
-    const { id, name, slug, logo_url, image_url, created_by } =
+    const { id, name, slug, logo_url, image_url,bio, created_by } =
       evnt?.data ?? {};
-      console.log('Webhook: organization.created event received', {
-        id,
-        name,
-        slug,
-        logo_url,
-        image_url,
-        created_by
-      });
+
     try {
       // @ts-ignore
       await createCommunity(
@@ -83,10 +76,9 @@ export const POST = async (request: Request) => {
         name,
         slug,
         logo_url || image_url,
-        "org bio",
+        bio,
         created_by
       );
-      console.log('Webhook: Community created successfully', createCommunity);
       return NextResponse.json({ message: "User created" }, { status: 201 });
     } catch (err) {
       console.error("Webhook: Error creating community:", err);
@@ -172,11 +164,11 @@ export const POST = async (request: Request) => {
     try {
       // Resource: https://clerk.com/docs/reference/backend-api/tag/Organizations#operation/UpdateOrganization
       // Show what evnt?.data sends from above resource
-      const { id, logo_url, name, slug } = evnt?.data;
+      const { id, logo_url, name, slug,bio } = evnt?.data;
       console.log("updated", evnt?.data);
 
       // @ts-ignore
-      await updateCommunityInfo(id, name, slug, logo_url);
+      await updateCommunityInfo(id, name, slug, logo_url,bio);
 
       return NextResponse.json({ message: "Member removed" }, { status: 201 });
     } catch (err) {

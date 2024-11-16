@@ -14,24 +14,16 @@ export async function createCommunity(
   username: string,
   image: string,
   bio: string,
-  createdById: string
+  createdById: string // Change the parameter name to reflect it's an id
 ) {
   try {
     connectToDB();
-    console.log('Creating community with data:', {
-      id,
-      name,
-      username,
-      image,
-      bio,
-      createdById
-    });
 
+    // Find the user with the provided unique id
     const user = await User.findOne({ id: createdById });
-    console.log('Found user:', user ? 'Yes' : 'No');
 
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("User not found"); // Handle the case if the user with the id is not found
     }
 
     const newCommunity = new Community({
@@ -40,19 +32,18 @@ export async function createCommunity(
       username,
       image,
       bio,
-      createdBy: user._id,
+      createdBy: user._id, // Use the mongoose ID of the user
     });
 
     const createdCommunity = await newCommunity.save();
-    console.log('Community created successfully:', createdCommunity);
 
     // Update User model
     user.communities.push(createdCommunity._id);
     await user.save();
-    console.log('User updated with new community');
 
     return createdCommunity;
   } catch (error) {
+    // Handle any errors
     console.error("Error creating community:", error);
     throw error;
   }
@@ -125,7 +116,7 @@ export async function fetchCommunities({
 }) {
   try {
     connectToDB();
-    console.log('Fetching communities with params:', { searchString, pageNumber, pageSize, sortBy });
+    
     // Calculate the number of communities to skip based on the page number and page size.
     const skipAmount = (pageNumber - 1) * pageSize;
 
@@ -145,7 +136,7 @@ export async function fetchCommunities({
 
     // Define the sort options for the fetched communities based on createdAt field and provided sort order.
     const sortOptions = { createdAt: sortBy };
-    console.log('MongoDB Query:', query);
+
     // Create a query to fetch the communities based on the search and sort criteria.
     const communitiesQuery = Community.find(query)
       .sort(sortOptions)
@@ -155,14 +146,9 @@ export async function fetchCommunities({
 
     // Count the total number of communities that match the search criteria (without pagination).
     const totalCommunitiesCount = await Community.countDocuments(query);
-    console.log('Total communities count:', totalCommunitiesCount);
+
     const communities = await communitiesQuery.exec();
-    console.log('Communities retrieved:', communities.length);
-    console.log('Community data:', communities.map(c => ({
-      id: c.id,
-      name: c.name,
-      username: c.username
-    })));
+
     // Check if there are more communities beyond the current page.
     const isNext = totalCommunitiesCount > skipAmount + communities.length;
 
