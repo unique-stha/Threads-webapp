@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="29.423077mm"
-   height="31.224487mm"
-   viewBox="0 0 29.423077 31.224487"
+   width="87.13945mm"
+   height="30.000002mm"
+   viewBox="0 0 87.13945 30.000002"
    version="1.1"
    id="svg1"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -12,6 +12,21 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient39">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0"
+         id="stop39" />
+      <stop
+         style="stop-color:#5e15de;stop-opacity:1"
+         offset="0.44715014"
+         id="stop41" />
+      <stop
+         style="stop-color:#484537;stop-opacity:1"
+         offset="1"
+         id="stop40" />
+    </linearGradient>
     <linearGradient
        id="linearGradient34">
       <stop
@@ -45,8 +60,8 @@
     <linearGradient
        xlink:href="#linearGradient32"
        id="linearGradient33"
-       x1="-3.2679727"
-       y1="1.3435507"
+       x1="-6.1904731"
+       y1="2.4128225"
        x2="113.32854"
        y2="56.154106"
        gradientUnits="userSpaceOnUse" />
@@ -74,29 +89,47 @@
        y1="32"
        x2="63"
        y2="47" />
+    <linearGradient
+       xlink:href="#linearGradient39"
+       id="linearGradient40"
+       x1="22.32362"
+       y1="6.4746637"
+       x2="115"
+       y2="22.761534"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      id="layer5"
-     transform="translate(-9.7802192,-10.484696)">
+     transform="translate(-10.576922,-10)">
     <path
        style="fill:url(#linearGradient33);stroke-width:0.264583"
        d="M 20,10 V 30 H 60 V 89.999999 H 79.999999 L 80.000001,30 h 10 V 10 Z"
        id="path1"
-       transform="matrix(0.42032968,0,0,0.39030611,1.3736259,6.5816338)" />
+       transform="matrix(0.40384618,0,0,0.37500001,2.4999989,6.25)" />
     <path
        style="fill:url(#linearGradient36);stroke-width:0.264583"
        d="m 25,35.921593 30,0.07841 v 10 l -30,-5e-6 z"
        id="path2"
-       transform="matrix(0.40384618,0,0,0.37500001,1.7032958,6.7346948)" />
+       transform="matrix(0.40384618,0,0,0.37500001,2.4999989,6.25)" />
     <path
        style="fill:url(#linearGradient37);stroke-width:0.264583"
        d="m 25,35.921593 30,0.07841 v 10 l -30,-5e-6 z"
        id="path2-4"
-       transform="matrix(0.40384618,0,0,0.37500001,1.7032959,13.109695)" />
+       transform="matrix(0.40384618,0,0,0.37500001,2.499999,12.625)" />
     <path
        style="fill:url(#linearGradient38);stroke-width:0.264583"
        d="m 25,35.921593 30,0.07841 v 10 l -30,-5e-6 z"
        id="path2-8"
-       transform="matrix(0.40384618,0,0,0.37500001,1.7032959,19.484695)" />
+       transform="matrix(0.40384618,0,0,0.37500001,2.499999,19)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:Impact;-inkscape-font-specification:Impact;white-space:pre;inline-size:52.9613;fill:url(#linearGradient40);fill-opacity:1;stroke-width:0.264583"
+       x="50"
+       y="21.610298"
+       id="text38"
+       transform="matrix(1.1669263,0,0,1.1669263,-15.473097,6.194545)"><tspan
+         x="50"
+         y="21.610298"
+         id="tspan2">Threads</tspan></text>
   </g>
 </svg>
